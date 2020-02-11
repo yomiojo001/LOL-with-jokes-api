@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
-  constructor(props) {
+  constructor() {
     
-    super(props)
+    super()
   
     this.state = {
       searchTerm: '',
@@ -20,7 +20,7 @@ class App extends Component {
 
   
 
-  searchJoke(limit = 20){
+  searchJoke = (limit = 20) => {
     this.setState({isFetchingJoke: true})
     fetch(`https://icanhazdadjoke.com/search?term=${this.state.searchTerm}&limit=${limit}`, {
       method: 'GET',
@@ -31,7 +31,6 @@ class App extends Component {
     .then(response => response.json())
     .then(json => {
       const jokes = json.results;
-      console.log('jokes', jokes);
       
       this.setState({
         jokes: jokes,
@@ -42,13 +41,8 @@ class App extends Component {
   
   
 
-  onSearchChange = (event) => {
-    this.setState({ searchTerm: event.target.value})
-  }
-
-  onSearchSubmit = (event) => {
-    event.preventDefault();
-    this.searchJoke();
+  onSearchChange = (value) => {
+    this.setState({ searchTerm: value})
   }
 
   renderJokes = () => {
@@ -61,14 +55,13 @@ class App extends Component {
     return (
       <div>
         <SearchForm 
-        onFormSubmit={this.onSearchSubmit}
+        onFormSubmit={this.searchJoke}
         onSearchValueChange={this.onSearchChange} 
         isSearching={this.state.isFetchingJokes}
         onSingleSearchClick={() => this.searchJoke(1)}
         />
 
         {this.state.isFetchingJoke ? ('seacrching joke....') : this.renderJokes() }
-        <p>search term: {this.state.searchTerm}</p>
       </div>
     )
   }
