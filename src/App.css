@@ -1,4 +1,15 @@
 body{
-  background-color: rgb(188, 255, 255);
-  color: rgb(112, 133, 37);
+  background-image: url('./img/bg-l0l.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: whitesmoke !important;
+  font-family: cursive !important;
+}
+
+h2{
+  font-size: 8rem !important;
+  color: whitesmoke;
+  text-overflow: ellipsis;
 }

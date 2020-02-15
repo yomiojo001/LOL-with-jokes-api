@@ -16,8 +16,10 @@ const SearchForm = props =>{
             <FormGroup>
                 <Input type="text" placeholder="Enter search term...." onChange={event => props.onSearchValueChange(event.target.value) } />
             </FormGroup>
-            <Button className="mr-2" disabled={props.isSearching}>Search</Button>
-            <Button onClick={props.onSingleSearchClick} disabled={props.isSearching}>Tell me a joke!</Button>
+            <div className="text-center mb-3">
+                <Button className="mr-2" disabled={props.isSearching}>Search</Button>
+                <Button onClick={props.onSingleSearchClick} disabled={props.isSearching}>Tell me a joke!</Button>
+            </div>
             </Form>
             
         </Container>

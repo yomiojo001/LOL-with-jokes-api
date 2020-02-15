@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
+import { ListGroup, ListGroupItem } from'reactstrap';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,7 +40,9 @@ class App extends Component {
     })
   }
   
-  
+  componentDidMount(){
+    this.searchJoke(3);
+  }
 
   onSearchChange = (value) => {
     this.setState({ searchTerm: value})
@@ -47,13 +50,14 @@ class App extends Component {
 
   renderJokes = () => {
     return (
-      <ul>{this.state.jokes.map(jokes => <li key={jokes.id }>{jokes.joke}</li>) }</ul>
+      <ListGroup>{this.state.jokes.map(jokes => <ListGroupItem className="text-dark" key={jokes.id }>{jokes.joke}</ListGroupItem>) }</ListGroup>
     )
   }
 
   render() {
     return (
-      <div>
+      <div className="col-md-6 offset-md-3">
+        <h2 className="text-center">LOL</h2>
         <SearchForm 
         onFormSubmit={this.searchJoke}
         onSearchValueChange={this.onSearchChange} 
