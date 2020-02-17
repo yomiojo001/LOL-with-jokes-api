@@ -13,3 +13,7 @@ h2{
   color: whitesmoke;
   text-overflow: ellipsis;
 }
+
+.list-group-item{
+  background-color: transparent !important;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
-import { ListGroup, ListGroupItem } from'reactstrap';
+import {  ListGroupItem } from'reactstrap';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -50,7 +50,7 @@ class App extends Component {
 
   renderJokes = () => {
     return (
-      <ListGroup>{this.state.jokes.map(jokes => <ListGroupItem className="text-dark" key={jokes.id }>{jokes.joke}</ListGroupItem>) }</ListGroup>
+     <div> {this.state.jokes.map(jokes => <ListGroupItem key={jokes.id }>{jokes.joke}</ListGroupItem>) }</div>
     )
   }
 
